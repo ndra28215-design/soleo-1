@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Soleo connects high-intent consumers with businesses through quality inbound calls, clicks, and leads." />
+  <title>Soleo — Better Lead Quality Through Better Consumer Engagement</title>
+
+  <!-- Tailwind CDN: suitable for contest preview. For production, compile Tailwind locally. -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            soleo: {
+              ink: '#242A35',
+              navy: '#172D50',
+              blue: '#234C7B',
+              orange: '#F36C21',
+              mist: '#F4F6F8',
+              line: '#E4E8ED',
+              teal: '#307473'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'Arial', 'sans-serif'],
+            display: ['Manrope', 'Inter', 'Arial', 'sans-serif']
+          },
+          boxShadow: {
+            soft: '0 18px 55px rgba(23,45,80,.10)',
+            card: '0 10px 35px rgba(23,45,80,.07)'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, Arial, sans-serif; color: #242A35; }
+    .display { font-family: Manrope, Inter, Arial, sans-serif; letter-spacing: -.045em; }
+    .eyebrow { letter-spacing: .16em; }
+    .hero-grid {
+      background-image: linear-gradient(rgba(23,45,80,.035) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(23,45,80,.035) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 92%);
+    }
+    .ticker-track { animation: ticker 60s linear infinite; width: max-content; }
+    .ticker:hover .ticker-track { animation-play-state: paused; }
+    @keyframes ticker { to { transform: translateX(-50%); } }
+    .faq-panel { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+    .faq-item.open .faq-panel { max-height: 260px; }
+    .faq-item.open .faq-plus { transform: rotate(45deg); }
+    .faq-plus { transition: transform .25s ease; }
+    .dashboard-glow { background: radial-gradient(circle at 80% 15%, rgba(243,108,33,.13), transparent 32%), #fff; }
+    .orange-rule { background: linear-gradient(90deg,#F36C21 0%,rgba(243,108,33,0) 100%); }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+      .ticker-track { animation-duration: 60s !important; }
+    }
+  </style>
+</head>
+
+<body class="bg-white antialiased">
+  <!-- NAVIGATION -->
+  <header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+      <a href="#top" class="flex items-center gap-2" aria-label="Soleo home">
+        <img src="soleo-logo-.svg" alt="" class="h-auto w-32" />
+      </a>
+
+      <nav class="hidden items-center gap-8 text-[13px] font-semibold text-slate-600 lg:flex" aria-label="Main navigation">
+        <a class="transition hover:text-soleo-orange" href="#quality">Why Soleo</a>
+        <a class="transition hover:text-soleo-orange" href="#platform">Our Technology</a>
+        <a class="transition hover:text-soleo-orange" href="#partners">Partners</a>
+        <a class="transition hover:text-soleo-orange" href="#resources">Resources</a>
+        <a class="transition hover:text-soleo-orange" href="#faqs">FAQs</a>
+      </nav>
+
+      <div class="hidden items-center gap-3 lg:flex">
+        <a href="#partners" class="text-[13px] font-bold text-soleo-navy transition hover:text-soleo-orange">Sell Leads</a>
+        <a href="#partners" class="rounded-full bg-soleo-orange px-5 py-3 text-[13px] font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-orange-600">Get Leads <span aria-hidden="true">↗</span></a>
+      </div>
+
+      <button id="menuButton" class="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 text-soleo-navy lg:hidden" aria-label="Open navigation" aria-expanded="false">
+        <svg id="menuIcon" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+    <div id="mobileMenu" class="hidden border-t border-slate-100 bg-white px-5 py-5 lg:hidden">
+      <nav class="flex flex-col gap-4 text-sm font-semibold text-slate-700">
+        <a href="#quality">Why Soleo</a><a href="#platform">Our Technology</a><a href="#partners">Partners</a><a href="#resources">Resources</a><a href="#faqs">FAQs</a>
+        <div class="flex gap-3 pt-2"><a href="#partners" class="flex-1 rounded-full border border-slate-200 py-3 text-center text-soleo-navy">Sell Leads</a><a href="#partners" class="flex-1 rounded-full bg-soleo-orange py-3 text-center text-white">Get Leads</a></div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="relative isolate overflow-x-clip bg-[#F7F8FA]">
+      <div class="hero-grid pointer-events-none absolute inset-0 -z-10"></div>
+      <div class="mx-auto grid max-w-7xl items-center gap-12 px-5 pb-20 pt-16 lg:grid-cols-[.92fr_1.08fr] lg:px-8 lg:pb-28 lg:pt-24">
+        <div class="relative z-10 max-w-2xl">
+          <div class="mb-7 inline-flex items-center gap-3 rounded-full border border-slate-200 bg-white px-4 py-2 shadow-sm">
+            <span class="h-2 w-2 rounded-full bg-soleo-orange"></span>
+            <span class="eyebrow text-[10px] font-bold uppercase text-slate-500">Performance media reimagined</span>
+          </div>
+          <h1 class="display text-[2.85rem] font-extrabold leading-[1.06] text-soleo-navy sm:text-6xl lg:text-[4.35rem]">
+            Better lead quality through <span class="text-soleo-orange">better</span> consumer engagement.
+          </h1>
+          <p class="mt-7 max-w-xl text-base leading-8 text-slate-600 sm:text-lg">
+            From the quality leader of inbound calls in insurance, home, and financial services.
+          </p>
+          <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+            <a href="#partners" class="inline-flex items-center justify-center gap-3 rounded-full bg-soleo-orange px-7 py-4 text-sm font-bold text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-1 hover:bg-orange-600">Get Leads <span>↗</span></a>
+            <a href="#partners" class="inline-flex items-center justify-center gap-3 rounded-full border border-slate-300 bg-white px-7 py-4 text-sm font-bold text-soleo-navy transition hover:border-soleo-navy hover:bg-slate-50">Sell Leads <span>↗</span></a>
+          </div>
+          <div class="mt-10 flex flex-wrap items-center gap-x-7 gap-y-3 border-t border-slate-200 pt-6 text-xs font-semibold text-slate-500">
+            <span class="flex items-center gap-2"><span class="text-soleo-orange">✓</span> Quality-first connections</span>
+            <span class="flex items-center gap-2"><span class="text-soleo-orange">✓</span> Compliance-minded</span>
+            <span class="flex items-center gap-2"><span class="text-soleo-orange">✓</span> Technology-powered</span>
+          </div>
+        </div>
+
+        <!-- HERO IMAGE: replace with a genuine Soleo photo or a licensed photo.
+             Search keywords: "professional business person using smartphone analytics dashboard",
+             "business professional reviewing marketing data on laptop", "real hands holding smartphone office".
+             Preferred: use an authentic Soleo platform / team image from soleo.com. -->
+        <div class="relative mx-auto w-full max-w-[650px]">
+          <div class="absolute -right-5 top-10 h-64 w-64 rounded-full bg-orange-100/70 blur-3xl"></div>
+          <div class="relative h-[390px] overflow-visible rounded-[1.8rem] bg-slate-200 shadow-soft sm:h-[490px]">
+            <div class="absolute inset-x-0 top-0 h-[390px] overflow-hidden rounded-[1.8rem] lg:-top-40 sm:h-[490px]">
+              <img
+                src="hero-soleo2.png"
+                alt="Business professionals collaborating around a laptop"
+                class="h-full w-full object-cover"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#122641]/55 via-transparent to-transparent"></div>
+            </div>
+            <div class="absolute left-6 right-6 top-[60%] rounded-2xl border border-white/50 bg-white/95 p-5 shadow-xl backdrop-blur-md sm:left-8 sm:right-8 sm:p-6">
+              <div class="flex items-center justify-between gap-4">
+                <div><p class="text-[10px] font-bold uppercase tracking-[.16em] text-slate-400">The Soleo advantage</p><p class="display mt-1 text-xl font-extrabold text-soleo-navy sm:text-2xl">Every connection counts.</p></div>
+                <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-orange-50 text-2xl text-soleo-orange">↗</div>
+              </div>
+              <div class="mt-5 grid grid-cols-3 gap-3 border-t border-slate-200 pt-4">
+                <div><p class="display text-xl font-extrabold text-soleo-navy">25<span class="text-soleo-orange">+</span></p><p class="mt-1 text-[10px] font-semibold text-slate-500">Years of experience</p></div>
+                <div><p class="display text-xl font-extrabold text-soleo-navy">High</p><p class="mt-1 text-[10px] font-semibold text-slate-500">Intent connections</p></div>
+                <div><p class="display text-xl font-extrabold text-soleo-navy">Smart</p><p class="mt-1 text-[10px] font-semibold text-slate-500">Optimization</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="absolute -left-5 top-14 hidden rounded-xl border border-slate-100 bg-white px-4 py-3 shadow-card sm:block">
+            <div class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-emerald-500"></span><span class="text-[11px] font-bold text-slate-600">Quality-led performance</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CUSTOMER LOGO TICKER -->
+    <section class="border-b border-slate-100 bg-white py-9">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <p class="eyebrow text-center text-[10px] font-bold uppercase text-slate-400">Connecting high-intent consumers with businesses like yours</p>
+        <!-- Customer logo assets supplied for this ticker. -->
+        <div class="ticker mt-7 overflow-hidden">
+          <div class="ticker-track flex items-center gap-16">
+            <div class="flex items-center gap-16 pr-16">
+              <img src="northstar.png" alt="Northstar" class="h-8 w-auto max-w-[150px] object-contain">
+              <img src="horizon.png" alt="Horizon" class="h-8 w-auto max-w-[150px] object-contain">
+              <img src="evergreen.png" alt="Evergreen" class="h-8 w-auto max-w-[150px] object-contain">
+              <img src="nexus.png" alt="Nexus" class="h-8 w-auto max-w-[150px] object-contain">
+              <img src="meridian.png" alt="Meridian" class="h-8 w-auto max-w-[150px] object-contain">
+              <img src="brightpath.png" alt="Brightpath" class="h-8 w-auto max-w-[150px] object-contain">
+            </div>
+            <div class="flex items-center gap-16 pr-16" aria-hidden="true">
+              <img src="northstar.png" alt="" class="h-8 w-auto max-w-[150px] object-contain">
+              <img src="horizon.png" alt="" class="h-8 w-auto max-w-[150px] object-contain">
+              <img src="evergreen.png" alt="" class="h-8 w-auto max-w-[150px] object-contain">
+              <img src="nexus.png" alt="" class="h-8 w-auto max-w-[150px] object-contain">
+              <img src="meridian.png" alt="" class="h-8 w-auto max-w-[150px] object-contain">
+              <img src="brightpath.png" alt="" class="h-8 w-auto max-w-[150px] object-contain">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUALITY / TRANSPARENCY -->
+    <section id="quality" class="py-24 sm:py-28">
+      <div class="mx-auto grid max-w-7xl items-center gap-14 px-5 lg:grid-cols-2 lg:gap-20 lg:px-8">
+        <div>
+          <p class="eyebrow text-[10px] font-bold uppercase text-soleo-orange">The quality difference</p>
+          <h2 class="display mt-5 max-w-xl text-4xl font-extrabold leading-[1.12] text-soleo-navy sm:text-5xl">Quality starts with transparency and ends in a <span class="text-soleo-orange">conversion.</span></h2>
+          <p class="mt-7 max-w-xl text-base leading-8 text-slate-600">Most performance marketing companies optimize for volume. We optimize for business outcomes that scale.</p>
+          <p class="mt-4 max-w-xl text-base leading-8 text-slate-600">Each lead comes from a verified source and is connected with you when the consumer is ready to buy. Equipped with our proprietary platform, our team of performance marketing experts manages, monitors, and optimizes your campaign to ensure you’re getting the most out of your ad spend.</p>
+          <a href="https://soleo.com/our-philosophy-on-transparency-in-performance-marketing/" target="_blank" rel="noopener" class="mt-8 inline-flex items-center gap-3 text-sm font-bold text-soleo-navy transition hover:text-soleo-orange">Explore our SMART philosophy <span class="text-soleo-orange">↗</span></a>
+        </div>
+
+        <!-- PLATFORM VISUAL: replace this designed placeholder with an authentic CallThread screenshot if available.
+             Search keywords: "Soleo CallThread platform dashboard screenshot", "call tracking analytics software dashboard",
+             "real-time call reporting campaign management interface". -->
+        <div id="platform" class="relative">
+          <div class="relative z-10 rounded-[1.5rem] bg-[#172D50] p-3 shadow-soft sm:p-4">
+            <div class="dashboard-glow relative overflow-hidden rounded-lg border border-slate-200">
+              <div class="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+                <div class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-full bg-soleo-orange"></span><span class="text-sm font-extrabold tracking-tight text-soleo-navy">CallThread</span><span class="rounded bg-slate-100 px-2 py-1 text-[9px] font-bold uppercase tracking-wider text-slate-500">Campaign overview</span></div>
+                <span class="text-[10px] font-semibold text-slate-400">LIVE REPORTING</span>
+              </div>
+              <div class="grid grid-cols-3 gap-3 p-5">
+                <div class="rounded-xl border border-slate-100 bg-white p-3"><p class="text-[9px] font-bold uppercase tracking-wider text-slate-400">Inbound calls</p><p class="display mt-2 text-2xl font-extrabold text-soleo-navy">1,284</p><p class="mt-1 text-[9px] font-semibold text-emerald-600">↑ Campaign activity</p></div>
+                <div class="rounded-xl border border-slate-100 bg-white p-3"><p class="text-[9px] font-bold uppercase tracking-wider text-slate-400">Qualified</p><p class="display mt-2 text-2xl font-extrabold text-soleo-navy">86.4%</p><p class="mt-1 text-[9px] font-semibold text-slate-400">Quality indicator</p></div>
+                <div class="rounded-xl border border-slate-100 bg-white p-3"><p class="text-[9px] font-bold uppercase tracking-wider text-slate-400">Active sources</p><p class="display mt-2 text-2xl font-extrabold text-soleo-navy">24</p><p class="mt-1 text-[9px] font-semibold text-slate-400">Source overview</p></div>
+              </div>
+              <div class="mx-5 mb-5 rounded-xl border border-slate-100 bg-white p-4">
+                <div class="flex items-center justify-between"><div><p class="text-xs font-bold text-soleo-navy">Call performance</p><p class="mt-1 text-[10px] text-slate-400">Illustrative dashboard visualization</p></div><span class="rounded-full bg-emerald-50 px-2.5 py-1 text-[9px] font-bold text-emerald-700">● Monitoring</span></div>
+                <div class="mt-5 flex h-32 items-end gap-2 border-b border-l border-slate-100 px-2">
+                  <div class="h-[35%] flex-1 rounded-t bg-blue-100"></div><div class="h-[48%] flex-1 rounded-t bg-blue-200"></div><div class="h-[42%] flex-1 rounded-t bg-blue-200"></div><div class="h-[66%] flex-1 rounded-t bg-blue-300"></div><div class="h-[58%] flex-1 rounded-t bg-blue-300"></div><div class="h-[76%] flex-1 rounded-t bg-blue-400"></div><div class="h-[68%] flex-1 rounded-t bg-blue-400"></div><div class="h-[92%] flex-1 rounded-t bg-soleo-orange"></div><div class="h-[82%] flex-1 rounded-t bg-blue-500"></div><div class="h-[100%] flex-1 rounded-t bg-soleo-navy"></div>
+                </div>
+                <div class="mt-3 flex justify-between text-[9px] font-medium text-slate-400"><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span><span>SUN</span></div>
+              </div>
+              <div class="flex items-center justify-between bg-soleo-navy px-5 py-3 text-white"><span class="text-[10px] font-semibold text-white/75">A clearer view of every connection.</span><span class="text-[10px] font-bold">SOLEO TECHNOLOGY ↗</span></div>
+            </div>
+          </div>
+          <div aria-hidden="true" class="relative z-0 mx-auto flex w-36 flex-col items-center">
+            <div class="h-8 w-16 bg-[#172D50] [clip-path:polygon(25%_0,75%_0,100%_100%,0_100%)]"></div>
+            <div class="-mt-px h-2.5 w-36 rounded-full bg-slate-300 shadow-sm"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- METRICS -->
+    <section class="relative overflow-hidden bg-soleo-navy py-20 text-white sm:py-24">
+      <div class="absolute -right-40 -top-48 h-[34rem] w-[34rem] rounded-full border border-white/10"></div>
+      <div class="absolute -right-20 -top-28 h-[26rem] w-[26rem] rounded-full border border-white/10"></div>
+      <div class="relative mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="max-w-2xl">
+          <p class="eyebrow text-[10px] font-bold uppercase text-orange-300">Built on experience. Focused on outcomes.</p>
+          <h2 class="display mt-5 text-4xl font-extrabold leading-tight sm:text-5xl">Inbound leads you can trust.</h2>
+          <p class="mt-6 max-w-xl text-base leading-8 text-slate-300">For more than 25 years, we have connected in-market consumers with the businesses that can help them. With an unwavering dedication to quality and compliance, we deliver high-intent calls, clicks, and leads directly to our partners’ pipelines.</p>
+        </div>
+        <!-- Replace X / XXX / $XX with client-approved, verified metrics before final handover. -->
+        <div class="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="relative isolate flex min-h-56 flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-[#234C7B] via-[#1B3A64] to-soleo-navy p-7 shadow-soft sm:col-span-2 sm:p-9 lg:col-span-1 lg:row-span-3">
+            <div class="absolute -right-12 -top-12 -z-10 h-48 w-48 rounded-full border border-white/10"></div>
+            <p class="eyebrow text-[10px] font-bold uppercase text-orange-300">A proven track record</p>
+            <div class="mt-10">
+              <p class="display text-6xl font-extrabold tracking-tight text-white sm:text-7xl">25<span class="text-soleo-orange">+</span></p>
+              <div class="mt-6 h-px w-12 bg-soleo-orange"></div>
+              <p class="mt-4 text-sm font-semibold text-slate-200">Years of experience</p>
+            </div>
+          </article>
+          <article class="flex min-h-[150px] flex-col justify-between rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:-translate-y-0.5 hover:border-orange-300/40 sm:p-7">
+            <div class="flex items-start justify-between gap-4"><p class="display text-4xl font-extrabold text-white">X</p><span class="mt-2 h-2 w-2 rounded-full bg-soleo-orange"></span></div>
+            <div><div class="mb-3 h-px w-8 bg-soleo-orange/80"></div><p class="text-xs font-semibold leading-5 text-slate-300">Categories served</p></div>
+          </article>
+          <article class="flex min-h-[150px] flex-col justify-between rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:-translate-y-0.5 hover:border-orange-300/40 sm:p-7">
+            <div class="flex items-start justify-between gap-4"><p class="display text-4xl font-extrabold text-white">XXX</p><span class="mt-2 h-2 w-2 rounded-full bg-soleo-orange"></span></div>
+            <div><div class="mb-3 h-px w-8 bg-soleo-orange/80"></div><p class="text-xs font-semibold leading-5 text-slate-300">Leads delivered monthly</p></div>
+          </article>
+          <article class="flex min-h-[150px] flex-col justify-between rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:-translate-y-0.5 hover:border-orange-300/40 sm:p-7">
+            <div class="flex items-start justify-between gap-4"><p class="display text-4xl font-extrabold text-white">$XX</p><span class="mt-2 h-2 w-2 rounded-full bg-soleo-orange"></span></div>
+            <div><div class="mb-3 h-px w-8 bg-soleo-orange/80"></div><p class="text-xs font-semibold leading-5 text-slate-300">New customer revenue generated</p></div>
+          </article>
+          <article class="flex min-h-[150px] flex-col justify-between rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:-translate-y-0.5 hover:border-orange-300/40 sm:p-7">
+            <div class="flex items-start justify-between gap-4"><p class="display text-4xl font-extrabold text-white">XX</p><span class="mt-2 h-2 w-2 rounded-full bg-soleo-orange"></span></div>
+            <div><div class="mb-3 h-px w-8 bg-soleo-orange/80"></div><p class="text-xs font-semibold leading-5 text-slate-300">Fortune 500 brand partners</p></div>
+          </article>
+          <article class="flex min-h-[150px] flex-col justify-between gap-6 rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:-translate-y-0.5 hover:border-orange-300/40 sm:col-span-2 sm:flex-row sm:items-center sm:p-7 lg:col-span-2">
+            <p class="display text-4xl font-extrabold text-white">XXX</p>
+            <div class="sm:max-w-xs"><div class="mb-3 h-px w-8 bg-soleo-orange/80"></div><p class="text-xs font-semibold leading-5 text-slate-300">Verified premium lead sources</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTNER WITH US -->
+    <section id="partners" class="bg-[#F6F8FA] py-24 sm:py-28">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="mx-auto max-w-3xl text-center">
+          <p class="eyebrow text-[10px] font-bold uppercase text-soleo-orange">Built for partnership</p>
+          <h2 class="display mt-5 text-4xl font-extrabold leading-tight text-soleo-navy sm:text-5xl">Your goals. Our network. <span class="text-soleo-orange">Better together.</span></h2>
+          <p class="mt-6 text-base leading-8 text-slate-600">Join a network built for performance. Whether you're looking to buy high-quality leads, monetize your traffic better, or partner with us in our mission to make meaningful connections, Soleo provides the tools and technology to help you succeed.</p>
+        </div>
+        <div class="mt-14 grid gap-6 md:grid-cols-2">
+          <article class="group relative isolate overflow-hidden rounded-2xl bg-soleo-navy p-8 text-white shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-soft sm:p-10">
+            <img src="lead buyer.jpg" alt="" class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-br from-soleo-navy/80 via-soleo-navy/75 to-soleo-navy/90"></div>
+            <div class="relative z-10">
+              <span class="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 text-xl text-orange-300">↗</span>
+              <p class="eyebrow mt-8 text-[10px] font-bold uppercase text-white/70">For advertisers</p>
+              <h3 class="display mt-3 text-3xl font-extrabold text-white">Lead Buyers</h3>
+              <p class="mt-4 max-w-md text-sm leading-7 text-white/80">Connect with high-intent consumers and build a stronger pipeline with quality inbound calls, clicks, and leads.</p>
+              <a href="https://soleo.com/callthread-for-advertisers/" target="_blank" rel="noopener" class="mt-8 inline-flex items-center gap-3 text-sm font-bold text-white transition group-hover:text-orange-300">Learn more <span>↗</span></a>
+            </div>
+          </article>
+          <article class="group relative isolate overflow-hidden rounded-2xl bg-soleo-navy p-8 text-white shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-soft sm:p-10">
+            <img src="lead sellers.jpg" alt="" class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-br from-soleo-navy/80 via-soleo-navy/75 to-soleo-navy/90"></div>
+            <div class="relative z-10">
+              <span class="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 text-xl text-orange-300">⌁</span>
+              <p class="eyebrow mt-8 text-[10px] font-bold uppercase text-white/70">For publishers</p>
+              <h3 class="display mt-3 text-3xl font-extrabold text-white">Lead Sellers</h3>
+              <p class="mt-4 max-w-md text-sm leading-7 text-white/80">Monetize your traffic through a trusted network, competitive offers, and technology built to help you grow.</p>
+              <a href="https://soleo.com/callthread-for-affiliates/" target="_blank" rel="noopener" class="mt-8 inline-flex items-center gap-3 text-sm font-bold text-white transition hover:text-orange-300">Learn more <span class="text-orange-300">↗</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="py-24 sm:py-28">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+          <div><p class="eyebrow text-[10px] font-bold uppercase text-soleo-orange">Partner perspective</p><h2 class="display mt-4 text-4xl font-extrabold text-soleo-navy sm:text-5xl">What our partners are saying.</h2></div>
+          <p class="max-w-sm text-sm leading-7 text-slate-500">Strong partnerships are built on trust, transparency, and measurable results.</p>
+        </div>
+        <!-- Replace with approved customer quotes, names, titles, and headshots supplied by Soleo. -->
+        <div class="mt-12 grid gap-6 lg:grid-cols-2">
+          <article class="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-soft">
+            <div class="relative h-64 overflow-hidden sm:h-72 lg:h-80">
+              <!-- Headshot search: "professional male CEO headshot neutral office portrait". Replace with approved partner photo. -->
+              <img src="ceo.jpg">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#172D50]/45 via-transparent to-[#172D50]/10"></div>
+              <span class="absolute left-6 top-6 rounded-full border border-white/25 bg-[#172D50]/55 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[.16em] text-white backdrop-blur-md">CEO</span>
+            </div>
+            <div class="flex flex-1 flex-col p-7 sm:p-9">
+              <blockquote class="border-l-2 border-soleo-orange pl-5 text-lg font-medium leading-8 text-soleo-navy">Soleo are not only great partners in the sense that they give quality calls, but they run a clean shop and have a great team that is interested in being a partner rather than a vendor.</blockquote>
+              <div class="mt-8 flex items-center justify-between gap-4 border-t border-slate-100 pt-6">
+                <div><p class="text-base font-bold text-soleo-navy">Andrew Fillar</p><p class="mt-1 text-xs font-medium text-slate-500">CEO, Peachy Insurance</p></div>
+                <span class="text-2xl font-light text-soleo-orange" aria-hidden="true">↗</span>
+              </div>
+            </div>
+          </article>
+          <article class="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-soft">
+            <div class="relative h-64 overflow-hidden sm:h-72 lg:h-80">
+              <!-- Headshot search: "professional male insurance agency founder headshot". Replace with approved partner photo. -->
+              <img src="founder.jpg">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#172D50]/45 via-transparent to-[#172D50]/10"></div>
+              <span class="absolute left-6 top-6 rounded-full border border-white/25 bg-[#172D50]/55 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[.16em] text-white backdrop-blur-md">Founder</span>
+            </div>
+            <div class="flex flex-1 flex-col p-7 sm:p-9">
+              <blockquote class="border-l-2 border-soleo-orange pl-5 text-lg font-medium leading-8 text-soleo-navy">We have implemented Soleo's calls and have seen some amazing results! Soleo has yielded the highest ROI, dollar for dollar, out of all of our vendors.</blockquote>
+              <div class="mt-8 flex items-center justify-between gap-4 border-t border-slate-100 pt-6">
+                <div><p class="text-base font-bold text-soleo-navy">Wyatt Mace</p><p class="mt-1 text-xs font-medium text-slate-500">Founder, The Mace Agencies</p></div>
+                <span class="text-2xl font-light text-soleo-orange" aria-hidden="true">↗</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESOURCES -->
+    <section id="resources" class="bg-[#F6F8FA] py-24 sm:py-28">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+          <div><p class="eyebrow text-[10px] font-bold uppercase text-soleo-orange">Ideas & insights</p><h2 class="display mt-4 text-4xl font-extrabold text-soleo-navy sm:text-5xl">Resources to move you forward.</h2></div>
+          <a href="https://soleo.com/resources/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-bold text-soleo-navy hover:text-soleo-orange">Explore all resources <span>↗</span></a>
+        </div>
+        <!-- Replace these featured article cards with current approved Soleo resource titles and images.
+             Image keywords: "business analytics team working laptop", "marketing strategy meeting office",
+             "call center operations professional headset office" (use authentic, non-staged-looking photos). -->
+        <div class="mt-12 grid gap-6 md:grid-cols-3">
+          <a href="https://soleo.com/inside-callthread-the-infrastructure-behind-better-calls/" target="_blank" rel="noopener" class="group overflow-hidden rounded-2xl bg-white shadow-card transition hover:-translate-y-1 hover:shadow-soft">
+            <img src="analitic dashboard.avif" alt="Analytics dashboard on a computer screen" class="h-52 w-full object-cover transition duration-500 group-hover:scale-[1.03]">
+            <div class="p-7"><p class="eyebrow text-[9px] font-bold uppercase text-soleo-orange">Technology</p><h3 class="display mt-3 text-xl font-extrabold leading-snug text-soleo-navy">Inside CallThread: The Infrastructure Behind Better Calls</h3><span class="mt-6 inline-flex items-center gap-2 text-xs font-bold text-slate-500 group-hover:text-soleo-orange">Read article <span>↗</span></span></div>
+          </a>
+          <a href="https://soleo.com/our-philosophy-on-transparency-in-performance-marketing/" target="_blank" rel="noopener" class="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-card transition hover:-translate-y-1 hover:shadow-soft">
+            <div class="p-7"><p class="eyebrow text-[9px] font-bold uppercase text-soleo-orange">Our philosophy</p><h3 class="display mt-3 text-xl font-extrabold leading-snug text-soleo-navy">A More Transparent Approach to Performance Marketing</h3><span class="mt-6 inline-flex items-center gap-2 text-xs font-bold text-slate-500 group-hover:text-soleo-orange">Read article <span>↗</span></span></div>
+            <img src="business-team.jpg" alt="Business team discussing strategy" class="h-52 w-full object-cover transition duration-500 group-hover:scale-[1.03]">
+          </a>
+          <a href="https://soleo.com/callthread-for-advertisers/" target="_blank" rel="noopener" class="group overflow-hidden rounded-2xl bg-white shadow-card transition hover:-translate-y-1 hover:shadow-soft">
+            <img src="professional-team.jpg" alt="Professionals reviewing business performance" class="h-52 w-full object-cover transition duration-500 group-hover:scale-[1.03]">
+            <div class="p-7"><p class="eyebrow text-[9px] font-bold uppercase text-soleo-orange">Performance</p><h3 class="display mt-3 text-xl font-extrabold leading-snug text-soleo-navy">Getting More From Every Inbound Call</h3><span class="mt-6 inline-flex items-center gap-2 text-xs font-bold text-slate-500 group-hover:text-soleo-orange">Explore CallThread <span>↗</span></span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faqs" class="py-24 sm:py-28">
+      <div class="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-[.72fr_1.28fr] lg:px-8">
+        <div>
+          <p class="eyebrow text-[10px] font-bold uppercase text-soleo-orange">Good to know</p>
+          <h2 class="display mt-5 text-4xl font-extrabold leading-tight text-soleo-navy sm:text-5xl">Frequently asked questions.</h2>
+          <p class="mt-6 max-w-sm text-sm leading-7 text-slate-600">Have another question? Our team is ready to help you find the right path forward.</p>
+          <a href="https://soleo.com/faqs/" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 text-sm font-bold text-soleo-navy hover:text-soleo-orange">Visit our FAQ center <span>↗</span></a>
+        </div>
+        <div class="divide-y divide-slate-200 border-y border-slate-200">
+          <div class="faq-item open">
+            <button class="faq-trigger flex w-full items-center justify-between gap-6 py-6 text-left" aria-expanded="true"><span class="text-base font-bold text-soleo-navy">What types of performance marketing services does Soleo offer?</span><span class="faq-plus text-2xl font-light text-soleo-orange">+</span></button>
+            <div class="faq-panel"><p class="max-w-2xl pb-6 pr-10 text-sm leading-7 text-slate-600">We help businesses improve lead acquisition through inbound calls, clicks, and leads generated by our call network and owned-and-operated digital properties.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger flex w-full items-center justify-between gap-6 py-6 text-left" aria-expanded="false"><span class="text-base font-bold text-soleo-navy">What kind of reporting and analytics does Soleo provide?</span><span class="faq-plus text-2xl font-light text-soleo-orange">+</span></button>
+            <div class="faq-panel"><p class="max-w-2xl pb-6 pr-10 text-sm leading-7 text-slate-600">Through CallThread, partners can access real-time reporting, call-by-call details, call recording, and conversion information, along with campaign management tools.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger flex w-full items-center justify-between gap-6 py-6 text-left" aria-expanded="false"><span class="text-base font-bold text-soleo-navy">How does Soleo ensure the quality of traffic and leads?</span><span class="faq-plus text-2xl font-light text-soleo-orange">+</span></button>
+            <div class="faq-panel"><p class="max-w-2xl pb-6 pr-10 text-sm leading-7 text-slate-600">Our approach includes publisher vetting, ongoing traffic monitoring, compliance safeguards, and dedicated account management focused on campaign performance.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger flex w-full items-center justify-between gap-6 py-6 text-left" aria-expanded="false"><span class="text-base font-bold text-soleo-navy">How does the onboarding process work?</span><span class="faq-plus text-2xl font-light text-soleo-orange">+</span></button>
+            <div class="faq-panel"><p class="max-w-2xl pb-6 pr-10 text-sm leading-7 text-slate-600">Soleo provides an online agreement and personalized account setup with a dedicated account manager. Setup is typically completed within a few days.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger flex w-full items-center justify-between gap-6 py-6 text-left" aria-expanded="false"><span class="text-base font-bold text-soleo-navy">How can publishers monetize their traffic?</span><span class="faq-plus text-2xl font-light text-soleo-orange">+</span></button>
+            <div class="faq-panel"><p class="max-w-2xl pb-6 pr-10 text-sm leading-7 text-slate-600">Approved publishers can connect with offers through the CallThread network, track campaign performance, and explore opportunities to grow their call traffic.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#14243B] text-white">
+    <div class="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-20">
+      <div class="grid gap-12 border-b border-white/15 pb-14 md:grid-cols-[1.3fr_.7fr_.7fr]">
+        <div>
+          <a href="#top" class="inline-flex" aria-label="Soleo home">
+            <img src="soleo-logo-.svg" alt="" class="h-auto w-36 brightness-0 invert">
+          </a>
+          <p class="mt-5 max-w-sm text-sm leading-7 text-slate-300">Better lead quality through better consumer engagement. Connecting high-intent consumers with businesses that help them move forward.</p>
+        </div>
+        <div><p class="eyebrow text-[10px] font-bold uppercase text-slate-400">Explore</p><div class="mt-5 flex flex-col gap-3 text-sm text-slate-300"><a class="hover:text-white" href="#quality">Why Soleo</a><a class="hover:text-white" href="#platform">Our Technology</a><a class="hover:text-white" href="#partners">Partner With Us</a><a class="hover:text-white" href="#resources">Resources</a></div></div>
+        <div><p class="eyebrow text-[10px] font-bold uppercase text-slate-400">Connect</p><div class="mt-5 flex flex-col gap-3 text-sm text-slate-300"><a class="hover:text-white" href="https://soleo.com/contact-us/" target="_blank" rel="noopener">Contact Soleo ↗</a><a class="hover:text-white" href="https://soleo.com/privacy-policy/" target="_blank" rel="noopener">Privacy policy ↗</a><a class="hover:text-white" href="https://soleo.com/terms-of-use/" target="_blank" rel="noopener">Terms of use ↗</a></div></div>
+      </div>
+      <div class="flex flex-col gap-3 pt-7 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between"><p>© <span id="year"></span> Soleo. All rights reserved.</p><p>Quality connections. Measurable outcomes.</p></div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation
+    const menuButton = document.getElementById('menuButton');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuButton.addEventListener('click', () => {
+      const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', String(!isOpen));
+      mobileMenu.classList.toggle('hidden');
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      menuButton.setAttribute('aria-expanded', 'false');
+    }));
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-trigger').forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const item = trigger.closest('.faq-item');
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(other => {
+          other.classList.remove('open');
+          other.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+        });
+        if (!wasOpen) {
+          item.classList.add('open');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
